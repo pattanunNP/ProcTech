@@ -96,7 +96,7 @@ public class Student {
     public Boolean equals(Student studentObj){
      
        return (new String(this.name).equals( new String(studentObj.name)) &&
-               new String(this.name).equals( new String(studentObj.name)) &&
+               new String(this.studentid).equals( new String(studentObj.studentid)) &&
                this.birthday.get(Calendar.DATE) == studentObj.birthday.get(Calendar.DATE) &&
                this.birthday.get(Calendar.MONTH) == studentObj.birthday.get(Calendar.MONTH) &&               
                this.birthday.get(Calendar.YEAR) == studentObj.birthday.get(Calendar.YEAR));
