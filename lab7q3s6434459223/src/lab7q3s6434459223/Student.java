@@ -1,7 +1,8 @@
-package lab6q4s6434459223;
+package lab7q3s6434459223;
 
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.Calendar;
 
 public class Student {
 
@@ -11,11 +12,8 @@ public class Student {
     private String name;
     private String studentid;
     private GregorianCalendar birthday;
-    private int Code;
-    private String sameyear_str, samelevel_str, samefac_str;
+    private ArrayList<CourseGrade> transcripts = new ArrayList<>();
 
-
-    
     public Student(String studentid, String name) {
 
         this.name = name;
@@ -88,14 +86,14 @@ public class Student {
      * @param studentObj
      * @return is equals
      */
-    @Override
     public Boolean equals(Student studentObj) {
 
-        return (this.name.equals(studentObj.name)
+        return this.name.equals(studentObj.name)
                 && this.studentid.equals(studentObj.studentid)
                 && this.birthday.get(Calendar.DATE) == studentObj.birthday.get(Calendar.DATE)
                 && this.birthday.get(Calendar.MONTH) == studentObj.birthday.get(Calendar.MONTH)
-                && this.birthday.get(Calendar.YEAR) == studentObj.birthday.get(Calendar.YEAR));
+                && this.birthday.get(Calendar.YEAR) == studentObj.birthday.get(Calendar.YEAR);
+
     }
 
     /**
@@ -118,70 +116,40 @@ public class Student {
         }
     }
 
-    /**
-     *
-     * @return Faculty Code
-     */
-    public int getFacultyCode() {
-        return Integer.parseInt(this.studentid.substring(8, 9));
-    }
+    public void addGradeReport(Course course, String grade) {
+        var courseobj = new CourseGrade(course, grade);
 
-    public int getLevelCode() {
-        //System.out.println("sub:"+this.studentid.substring(2,3));
-        return Integer.parseInt(this.studentid.substring(2, 3));
-    }
-
-    public int getYear() {
-        return Integer.parseInt(this.studentid.substring(0, 1));
+        transcripts.add(courseobj);
 
     }
 
-    private int getDigit(int start, int end) {
+    public double calGPA() {
 
-        if (start == 0 && end == 1) {
-            Code = getYear();
+        double sum_grade = 0.0;
+        int sum_credit = 0;
 
-        } else if (start == 2 && end == 2) {
-            Code = getLevelCode();
+        for (int counter = 0; counter < transcripts.size(); counter++) {
+            var course_grade = transcripts.get(counter);
 
-        } else if (start == 8 && end == 9) {
-            Code = getFacultyCode();
-        }
-        return Code;
+            sum_credit += course_grade.getCourse().getCredit();
 
-    }
+            sum_grade += course_grade.GradeCodeConvertor() * course_grade.getCourse().getCredit();
 
-    public boolean sameYear(Student student) {
-        return student.getDigit(0, 1) == getDigit(0, 1);
-    }
-
-    public boolean sameLevel(Student student) {
-        return student.getDigit(2, 2) == getDigit(2, 2);
-    }
-
-    public boolean sameFaculty(Student student) {
-        return student.getDigit(8, 9) == getDigit(8, 9);
-    }
-
-    public String SametoString(boolean sameyear, boolean samelevel, boolean samefac) {
-
-        if (sameyear == true) {
-            sameyear_str = "same year";
-        } else {
-            sameyear_str = "different year";
-        }
-        if (samefac == true) {
-            samefac_str = "same faculty";
-        } else {
-            samefac_str = "different faculty";
-        }
-        if (samelevel == true) {
-            samelevel_str = "same level";
-        } else {
-            samelevel_str = "different level";
         }
 
-        return sameyear_str + ", " + samelevel_str + ", " + samefac_str;
+        return sum_grade / sum_credit;
     }
 
+    public String getReport() {
+        String report = "";
+
+        for (int k = 0; k < this.transcripts.size(); k++) {
+            report += "\n" + this.transcripts.get(k).getCourseInfo();
+        }
+        return report;
+    }
+
+    public ArrayList getTranscripts() {
+        return this.transcripts;
+    }
 }
