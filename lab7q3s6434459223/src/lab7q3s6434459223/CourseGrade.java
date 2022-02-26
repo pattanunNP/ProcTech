@@ -7,13 +7,12 @@ public class CourseGrade {
     private Course course;
 
     public CourseGrade(Course course, String grade) {
-        this.GradeCode = grade;
         this.course = course;
+        this.GradeCode = grade;
 
     }
 
     public Course getCourse() {
-
         return this.course;
     }
 

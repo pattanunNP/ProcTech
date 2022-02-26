@@ -63,6 +63,7 @@ public class Q3 {
         }
 
         for (int n_student = 0; n_student < student_box.length; n_student++) {
+            
             System.out.println(student_box[n_student].getName() + " grade report: ");
 
             String grade_report = input.nextLine();

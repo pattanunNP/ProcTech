@@ -12,6 +12,7 @@ public class Student {
     private String name;
     private String studentid;
     private GregorianCalendar birthday;
+   
     private ArrayList<CourseGrade> transcripts = new ArrayList<>();
 
     public Student(String studentid, String name) {
@@ -117,19 +118,24 @@ public class Student {
     }
 
     public void addGradeReport(Course course, String grade) {
-        var courseobj = new CourseGrade(course, grade);
+        
+       var courseobj = new CourseGrade(course, grade);
 
-        transcripts.add(courseobj);
+       transcripts.add(courseobj);
 
     }
 
     public double calGPA() {
 
         double sum_grade = 0.0;
+        
         int sum_credit = 0;
 
         for (int counter = 0; counter < transcripts.size(); counter++) {
+            
             var course_grade = transcripts.get(counter);
+            
+            // CourseGrade@12321saae
 
             sum_credit += course_grade.getCourse().getCredit();
 
