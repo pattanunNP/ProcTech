@@ -28,9 +28,9 @@ public class Cal {
 
         double[] arr = new double[2];
 
-        double x_pos = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / 2 * a;
+        double x_pos = ((-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a));
 
-        double x_neg = (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / 2 * a;
+        double x_neg = ((-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a));
 
         arr[0] = x_pos;
         arr[1] = x_neg;
