@@ -30,11 +30,16 @@ public class Q2 {
         System.out.println("\nC : \n");
         MTX.displayMatrix(c.getMatrix());
 
-        System.out.println("\n A and B is equal " + a.equalSize(c) + " : \n");
 
-        System.out.println("\nA+B : \n");
+        if (a.equalSize(b)) {
+            System.out.println("\nA+B : \n");
 
-        MTX.displayMatrix(a.add(b));
+            MTX.displayMatrix(a.add(b));
+        }else{
+            
+             System.out.println("\nA and B is not same size");
+        
+        }
 
         System.out.println("\n2*B : \n");
 
