@@ -10,15 +10,14 @@ import java.util.Scanner;
  *
  * @author arm
  */
-public class q2 {
-    
-    public static void main(String[] args) {
-                    Scanner Sc = new Scanner(System.in);
-                    System.out.print("Enter name:");
-                    String name = Sc.nextLine();
-                    System.out.print("Enter brith year:");
-                    int year = Sc.nextInt();
-                    System.out.println(name+" is "+(2565-year)+" years old.");
- 
-          }
+class q2 {
+    static void main(String[] args){
+          Scanner Sc = new Scanner(System.in);
+          System.out.print("Enter name:");
+          String name = Sc.nextLine();
+          System.out.print("Enter brith year:");
+          int year = Sc.nextInt();
+          System.out.println(name + "is"+ (2565-year)+"years old.");
+          
+    }
 }
