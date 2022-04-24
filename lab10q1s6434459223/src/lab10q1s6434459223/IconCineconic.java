@@ -42,6 +42,9 @@ public class IconCineconic {
             mGenFirstClass.getFreeTicket();
         
         }
+        //getClass().getSimpleName().equal("GoldCustomer") 
+     
+        
         
         System.out.println("Test run : Call usePoint() of every object in the array list");
         for (int i = 0; i < cardAL.size(); i++) {

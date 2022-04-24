@@ -51,7 +51,10 @@ public class Order {
           total -= (goldCustomer.getDiscount() / 100) * total;
             
         }
+        
+        
 
+    
         return total;
     }
     
